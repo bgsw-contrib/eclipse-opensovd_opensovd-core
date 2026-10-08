@@ -112,7 +112,6 @@ mod schema {
 }
 
 #[cfg(test)]
-#[cfg_attr(coverage_nightly, coverage(off))]
 mod tests {
     use super::*;
 
@@ -138,17 +137,17 @@ mod tests {
     #[test]
     fn json_pointer_from_path_error() {
         #[derive(Debug, Deserialize)]
-        #[allow(dead_code)]
+        #[expect(dead_code)]
         struct Inner {
             level: u8,
         }
         #[derive(Debug, Deserialize)]
-        #[allow(dead_code)]
+        #[expect(dead_code)]
         enum Mode {
             Manual { level: u8 },
         }
         #[derive(Debug, Deserialize)]
-        #[allow(dead_code)]
+        #[expect(dead_code)]
         struct Outer {
             data: Vec<Inner>,
             mode: Option<Mode>,
@@ -175,7 +174,6 @@ mod tests {
 }
 
 #[cfg(all(test, feature = "jsonschema"))]
-#[cfg_attr(coverage_nightly, coverage(off))]
 mod schema_tests {
     use super::*;
 

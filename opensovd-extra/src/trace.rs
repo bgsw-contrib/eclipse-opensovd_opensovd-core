@@ -230,8 +230,6 @@ mod logs {
 }
 
 #[cfg(test)]
-#[cfg_attr(coverage_nightly, coverage(off))]
-#[allow(clippy::unwrap_used)]
 mod tests {
     use std::convert::Infallible;
     use std::fmt;
